@@ -4,7 +4,7 @@ module.exports = {
     version: 1.2,
 
     // Standard language (editor)
-    language: 'en',
+    language: 'zh-cn',
 
     // The TCP port used by the JLScada web server
     uiPort: process.env.PORT || 1881,

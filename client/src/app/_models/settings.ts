@@ -1,6 +1,6 @@
 export class AppSettings {
     /** Editor language */
-    language = 'en';
+    language = 'zh-cn';
     /** Hide the editor onboarding wizard on editor entry */
     hideEditorOnboarding = false;
     /** Per-section informational messages in editor areas */

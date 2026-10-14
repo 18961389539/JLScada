@@ -4,7 +4,7 @@ module.exports = {
     version: 1.4,
 
     // Standard language (editor)
-    language: 'en',
+    language: 'zh-cn',
 
     // Hide the editor onboarding wizard when entering editor mode
     hideEditorOnboarding: false,
