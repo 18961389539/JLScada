@@ -1,0 +1,13 @@
+services:
+  jlscada:
+    build: .
+    image: jlscada:latest
+    restart: unless-stopped
+    volumes:
+      # Keep the legacy container mount points so existing deployment scripts remain compatible.
+      - './appdata:/usr/src/app/FUXA/server/_appdata'
+      - './db:/usr/src/app/FUXA/server/_db'
+      - './logs:/usr/src/app/FUXA/server/_logs'
+      - './images:/usr/src/app/FUXA/server/_images'
+    ports:
+      - '1881:1881'

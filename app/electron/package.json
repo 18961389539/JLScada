@@ -1,0 +1,79 @@
+{
+    "name": "jlscada",
+    "version": "0.0.1",
+    "description": "JLScada is a desktop SCADA/HMI application for industrial monitoring and control.",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "package": "electron-builder --dir",
+        "dist": "electron-builder",
+        "postinstall": "electron-builder install-app-deps"
+    },
+    "author": "JLScada",
+    "license": "MIT",
+    "devDependencies": {
+        "electron": "39.8.10",
+        "electron-builder": "25.1.8"
+    },
+    "dependencies": {
+        "sqlite3": "5.1.7"
+    },
+    "overrides": {
+        "tar": "7.5.20"
+    },
+    "build": {
+        "appId": "com.jlscada.desktop",
+        "productName": "JLScada",
+        "artifactName": "${productName}-portable.${ext}",
+        "asar": false,
+        "files": [
+            "main.js",
+            "*.html",
+            "server/**/*",
+            "client/dist/**/*",
+        "icons/jlscada-logo.ico",
+        "icons/jlscada-logo.png",
+        "icons/jlscada-logo.icns"
+        ],
+        "extraResources": [
+            {
+                "from": "server/node_modules",
+                "to": "app/server/node_modules",
+                "filter": [
+                    "!**/.bin/**"
+                ]
+            }
+        ],
+        "directories": {
+            "output": "dist"
+        },
+        "win": {
+            "target": [
+                {
+                    "target": "portable",
+                    "arch": ["x64"]
+                }
+            ],
+            "icon": "icons/jlscada-logo.ico"
+        },
+        "linux": {
+            "target": [
+                {
+                    "target": "appimage",
+                    "arch": ["x64", "arm64"]
+                }
+            ],
+            "executableName": "jlscada",
+            "icon": "icons/jlscada-logo.png"
+        },
+        "mac": {
+            "target": [
+                {
+                    "target": "dmg",
+                    "arch": ["x64", "arm64"]
+                }
+            ],
+            "icon": "icons/jlscada-logo.icns"
+        }
+    }
+}
